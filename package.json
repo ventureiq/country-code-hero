@@ -1,0 +1,33 @@
+{
+  "name": "country-code-hero",
+  "version": "1.0.0",
+  "description": "Utility class for working with ISO3166-1 country codes ",
+  "main": "country_code_hero.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm test "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ventureiq/country-code-hero.git"
+  },
+  "keywords": [
+    "country",
+    "codes",
+    "iso",
+    "3166"
+  ],
+  "author": "Timir Karia <timir@ventureiq.nl> (https://ventureiq.nl) ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ventureiq/country-code-hero/issues"
+  },
+  "homepage": "https://github.com/ventureiq/country-code-hero#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^5.0.0"
+  }
+}
