@@ -78,5 +78,12 @@ describe('IsoCountryCodes', () => {
     assert.isArray(find);
     assert.include(find, nl);
   });
+   it('finds multiple countries', () => {
+    let isoCC = new IsoCountryCodes();
+    let find = isoCC.search('korea');
+    assert.isArray(find);
+    assert.lengthOf(find, 2, "Two Korea results found")
+  });
+    
 });
 

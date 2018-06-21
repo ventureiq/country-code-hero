@@ -19,7 +19,7 @@ class IsoCountryCodes {
    * @return {Array} of potential matches
    */
   search(partial) {
-    let re = new RegExp(partial, 'ig');
+    let re = new RegExp(partial, 'i');
     return this._map.filter(function(value) {
       return re.exec(value.name) ||
         re.exec(value['alpha-2']) ||
