@@ -9,7 +9,7 @@ class IsoCountryCodes {
    * Create an country codes object
    * @param {Object} countryFile
    */
-  constructor(countryFile = require('./iso_country_codes.json')) {
+  constructor(countryFile = require("./iso_country_codes.json")) {
     this._map = countryFile;
   }
 
@@ -19,11 +19,13 @@ class IsoCountryCodes {
    * @return {Array} of potential matches
    */
   search(partial) {
-    let re = new RegExp(partial, 'i');
+    let re = new RegExp(partial, "i");
     return this._map.filter(function(value) {
-      return re.exec(value.name) ||
-        re.exec(value['alpha-2']) ||
-        re.exec(value['alpha-3']);
+      return (
+        re.exec(value.name) ||
+        re.exec(value["alpha-2"]) ||
+        re.exec(value["alpha-3"])
+      );
     });
   }
 
@@ -35,9 +37,11 @@ class IsoCountryCodes {
   find(name) {
     name = name.toLocaleUpperCase();
     return this._map.filter(function(value) {
-      return value.name === name ||
-        value['alpha-2'] === name ||
-        value['alpha-3'] === name;
+      return (
+        value.name === name ||
+        value["alpha-2"] === name ||
+        value["alpha-3"] === name
+      );
     });
   }
 
@@ -50,7 +54,7 @@ class IsoCountryCodes {
   findAlpha3(alpha3) {
     alpha3 = alpha3.toLocaleUpperCase();
     return this._map.find(function(value) {
-      return value['alpha-3'] === alpha3;
+      return value["alpha-3"] === alpha3;
     });
   }
 
@@ -63,7 +67,20 @@ class IsoCountryCodes {
   findAlpha2(alpha2) {
     alpha2 = alpha2.toLocaleUpperCase();
     return this._map.find(function(value) {
-      return value['alpha-2'] === alpha2;
+      return value["alpha-2"] === alpha2;
+    });
+  }
+
+  /**
+   * Determine if match exists in alpha-3 field only
+   * NOTE: Does not return the value
+   * @param {String} tld
+   * @return {Boolean} True if exists; else False
+   */
+  findTld(tld) {
+    tld = tld.toLowerCase();
+    return this._map.find(function(value) {
+      return value["tld"].includes(tld);
     });
   }
 
@@ -73,7 +90,7 @@ class IsoCountryCodes {
    */
   getAlpha3() {
     return this._map.map(function(value) {
-      return value['alpha-3'];
+      return value["alpha-3"];
     });
   }
 
@@ -83,7 +100,7 @@ class IsoCountryCodes {
    */
   getAlpha2() {
     return this._map.map(function(value) {
-      return value['alpha-2'];
+      return value["alpha-2"];
     });
   }
 
@@ -95,7 +112,7 @@ class IsoCountryCodes {
    */
   getRegion(region) {
     return this._map.filter(function(value) {
-      return value['region'] === region;
+      return value["region"] === region;
     });
   }
 
@@ -104,10 +121,42 @@ class IsoCountryCodes {
    * @return {Array} all alpha-2 country codes in EEA region
    */
   getEEA() {
-    return ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EU', 'EE', 'FI',
-            'FR', 'DE', 'GR', 'HU', 'IS', 'IE', 'IT', 'LV', 'LI', 'LT',
-            'LU', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES',
-            'SE', 'CH', 'GB', 'UK'];
+    return [
+      "AT",
+      "BE",
+      "BG",
+      "HR",
+      "CY",
+      "CZ",
+      "DK",
+      "EU",
+      "EE",
+      "FI",
+      "FR",
+      "DE",
+      "GR",
+      "HU",
+      "IS",
+      "IE",
+      "IT",
+      "LV",
+      "LI",
+      "LT",
+      "LU",
+      "MT",
+      "NL",
+      "NO",
+      "PL",
+      "PT",
+      "RO",
+      "SK",
+      "SI",
+      "ES",
+      "SE",
+      "CH",
+      "GB",
+      "UK"
+    ];
   }
 }
 
