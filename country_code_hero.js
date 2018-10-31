@@ -46,10 +46,9 @@ class IsoCountryCodes {
   }
 
   /**
-   * Determine if match exists in alpha-3 field only
-   * NOTE: Does not return the value
+   * Return country object by ISO 3166-1 aplha-3 code
    * @param {string} alpha3
-   * @return {object} True if exists; else False
+   * @return {object?} True if exists; else False
    */
   findAlpha3(alpha3) {
     alpha3 = alpha3.toLocaleUpperCase();
@@ -59,10 +58,9 @@ class IsoCountryCodes {
   }
 
   /**
-   * Determine if match exists in alpha-3 field only
-   * NOTE: Does not return the value
+   * Return country object by ISO 3166-1 aplha-2 code
    * @param {string} alpha2
-   * @return {object} True if exists; else False
+   * @return {object?} True if exists; else False
    */
   findAlpha2(alpha2) {
     alpha2 = alpha2.toLocaleUpperCase();
@@ -72,8 +70,7 @@ class IsoCountryCodes {
   }
 
   /**
-   * Determine if match exists in alpha-3 field only
-   * NOTE: Does not return the value
+   * Return country object by tld (rfc1591)
    * @param {string} tld
    * @return {object} True if exists; else False
    */
