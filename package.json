@@ -1,6 +1,6 @@
 {
   "name": "country-code-hero",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility class for working with ISO3166-1 country codes ",
   "main": "country_code_hero.js",
   "directories": {
