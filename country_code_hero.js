@@ -7,7 +7,7 @@
 class IsoCountryCodes {
   /**
    * Create an country codes object
-   * @param {Object} countryFile
+   * @param {object[]} countryFile configuration for country codes
    */
   constructor(countryFile = require("./iso_country_codes.json")) {
     this._map = countryFile;
@@ -15,8 +15,8 @@ class IsoCountryCodes {
 
   /**
    * Search in full name, alpha-2 and alpha-3 for a country code with a fragment
-   * @param {String} partial
-   * @return {Array} of potential matches
+   * @param {string} partial
+   * @return {object[]} of potential matches
    */
   search(partial) {
     let re = new RegExp(partial, "i");
@@ -31,8 +31,8 @@ class IsoCountryCodes {
 
   /**
    * Find an exact match for name in name, alpha-2, and alpha-3 fields
-   * @param {String} name
-   * @return {Array} of matches
+   * @param {string} name
+   * @return {object[]} of matches
    */
   find(name) {
     name = name.toLocaleUpperCase();
@@ -48,8 +48,8 @@ class IsoCountryCodes {
   /**
    * Determine if match exists in alpha-3 field only
    * NOTE: Does not return the value
-   * @param {String} alpha3
-   * @return {Boolean} True if exists; else False
+   * @param {string} alpha3
+   * @return {object} True if exists; else False
    */
   findAlpha3(alpha3) {
     alpha3 = alpha3.toLocaleUpperCase();
@@ -61,8 +61,8 @@ class IsoCountryCodes {
   /**
    * Determine if match exists in alpha-3 field only
    * NOTE: Does not return the value
-   * @param {String} alpha2
-   * @return {Boolean} True if exists; else False
+   * @param {string} alpha2
+   * @return {object} True if exists; else False
    */
   findAlpha2(alpha2) {
     alpha2 = alpha2.toLocaleUpperCase();
@@ -74,8 +74,8 @@ class IsoCountryCodes {
   /**
    * Determine if match exists in alpha-3 field only
    * NOTE: Does not return the value
-   * @param {String} tld
-   * @return {Boolean} True if exists; else False
+   * @param {string} tld
+   * @return {object} True if exists; else False
    */
   findTld(tld) {
     tld = tld.toLowerCase();
@@ -86,7 +86,7 @@ class IsoCountryCodes {
 
   /**
    * Get array of all alpha-3 codes
-   * @return {Array} of all alpha-3 codes
+   * @return {string[]} of all alpha-3 codes
    */
   getAlpha3() {
     return this._map.map(function(value) {
@@ -96,7 +96,7 @@ class IsoCountryCodes {
 
   /**
    * Get array of all alpha-2 codes
-   * @return {Array} of all alpha-2 codes
+   * @return {string[]} of all alpha-2 codes
    */
   getAlpha2() {
     return this._map.map(function(value) {
@@ -107,8 +107,8 @@ class IsoCountryCodes {
   /**
    * Get array of all region names
    * E.g. Asia, Americas, etc.
-   * @param {String} region
-   * @return {Array} of all region names
+   * @param {string} region
+   * @return {object[]} of all region names
    */
   getRegion(region) {
     return this._map.filter(function(value) {
@@ -118,7 +118,7 @@ class IsoCountryCodes {
 
   /**
    * Return array of all alpha-2 country codes in EEA region
-   * @return {Array} all alpha-2 country codes in EEA region
+   * @return {string[]} all alpha-2 country codes in EEA region
    */
   getEEA() {
     return [
