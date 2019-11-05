@@ -1,3 +1,5 @@
+import defaultCodes from './iso_country_codes';
+
 /**
  * Utilities for dealing with ISO 3166-1 style country codes
  * Underlying data from https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes
@@ -9,7 +11,7 @@ class IsoCountryCodes {
    * Create an country codes object
    * @param {object[]} countryFile configuration for country codes
    */
-  constructor(countryFile = require("./iso_country_codes.json")) {
+  constructor(countryFile = defaultCodes) {
     this._map = countryFile;
   }
 
@@ -170,4 +172,4 @@ class IsoCountryCodes {
   }
 }
 
-module.exports = IsoCountryCodes;
+export default IsoCountryCodes;
